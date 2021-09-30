@@ -4,8 +4,11 @@
   foreach($_COOKIE as $cookiename=>$cookievalue) {
       if ($cookiename==$uname) {
         $i=$cookievalue;
+        $i++;
         $flag=1;
+        setCookie($uname,$i,time()+3600);
         echo "You are visiting this page : ".$i." times";
+
       }
   }
 
