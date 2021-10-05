@@ -8,7 +8,7 @@ SMTP=smtp.gmail.com
 ; http://php.net/smtp-port
 smtp_port=587
 
-sendmail_from = sohilpandya@gmail.com
+sendmail_from = sohilpandya@gmail.com   // ENTER YOUR OWN EMAIL ADDRESS HERE (GMAIL ACCOUNT)
 
 sendmail_path ="\"C:\xampp\sendmail\sendmail.exe\" -t"
 
@@ -19,8 +19,8 @@ smtp_server=smtp.gmail.com
 smtp_port=587
 smtp_ssl=auto
 
-auth_username=sohilpandya@gmail.com
-auth_password=***********
+auth_username=sohilpandya@gmail.com // ENTER YOUR OWN EMAIL ADDRESS HERE (GMAIL ACCOUNT)
+auth_password=***********           // ENTER YOUR OWN PASSWORD HERE
 
 force_sender=sohilpandya@gmail.com
 
