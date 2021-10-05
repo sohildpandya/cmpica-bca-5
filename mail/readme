@@ -1,0 +1,25 @@
+CONFIGURATION IN PHP.INI
+-------------------------------------------
+
+[mail function]
+; For Win32 only.
+; http://php.net/smtp
+SMTP=smtp.gmail.com
+; http://php.net/smtp-port
+smtp_port=587
+
+sendmail_from = sohilpandya@gmail.com
+
+sendmail_path ="\"C:\xampp\sendmail\sendmail.exe\" -t"
+
+CONFIGURATION IN SENDMAIL.INI
+------------------------------------------------------
+
+smtp_server=smtp.gmail.com
+smtp_port=587
+smtp_ssl=auto
+
+auth_username=sohilpandya@gmail.com
+auth_password=***********
+
+force_sender=sohilpandya@gmail.com
