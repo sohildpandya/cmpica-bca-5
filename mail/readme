@@ -23,3 +23,7 @@ auth_username=sohilpandya@gmail.com
 auth_password=***********
 
 force_sender=sohilpandya@gmail.com
+
+CONTENT OF CSV FILE
+--------------------------------
+STUDENT ID - FIRST NAME - LAST NAME - EMAIL ADDRESS - SUB 1 MARKS - SUB 2 MARKS - SUB 3 MARKS - SUB 4 MARKS
