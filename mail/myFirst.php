@@ -1,10 +1,15 @@
 <?php
+// Opening CSV File
 $file = fopen("myData.csv","r");
 
- while (!feof($file)) 
+ while (!feof($file)) // Reading up to the end of the file
     {        
-	$array=fgetcsv($file);
-	$to=$array[3];
+	$array=fgetcsv($file);	// Getting first row as an array
+	 
+	$to=$array[3];	// Getting email address for the current row
+	
+	// PREPARING MESSAGE USING SOME STATIC TEXT AND DATA FROM CSV FILES LIKE NAME, MARKS, ETC.
+	 
 	$msg="<font color='blue' style='font-family: arial;'>";
 	$msg.="Dear ".$array[1]."<br>";
 	$msg.="<br>We're happy to show you your result. You next semester is going to start from <strong>Dec. 20, 2021</strong>";
@@ -30,14 +35,19 @@ $file = fopen("myData.csv","r");
 	$msg.="<br><a href='www.charusat.ac.in'>www.charusat.ac.in</a><br><hr>";
 	//echo $msg;
 
+	 // CREATING SUBJECT WITH DYNAMIC DATA LIKE STUDENT ID  FOR CURRENT RECORD
+	 
 	 $sub = "Mid Semester Result - ".$array[0];
+	 
+	 // SETTING MIME TYPE AS HTML INSTEAD OF PLAIN TEXT
+	 
 	$headers=$headers = 'Content-Type: text/html; charset=utf-8' . "\r\n";
-  	 if (mail($to,$sub,$msg,$headers))
+  	 if (mail($to,$sub,$msg,$headers))	// SENDING MAIL
 	      echo $array[0]." - Mail is sent successfully.<br>";
 	  else
 	      echo $array[0]."<font color='red'> Your Mail is not sent. Try Again.</font><br>";
     }
   
 
-fclose($file);
+fclose($file);	//CLOSING THE FILE
 ?>
