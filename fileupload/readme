@@ -1,0 +1,35 @@
+CONFIGURE php.ini
+------------------------------
+	file_uploads - directive is on
+
+HTML File
+---------------
+	<input type="file" name="fileToUpload" id="fileToUpload">
+
+	the form must use method="post"	
+
+	the form must use property enctype="multipart/form-data"
+
+PHP File
+------------
+	$target_dir = "uploads/" - specifies the directory where the file is going to be placed
+
+	$target_file specifies the path of the file to be uploaded
+
+	$imageFileType holds the file extension of the file (in lower case)
+
+	file_exists($target_file)
+	To check wthether the file exists?
+
+	$_FILES["fileToUpload"]["size"] > 500000 (500 KB)
+	To restrict the file size 
+
+	$imageFileType != "jpg" && $imageFileType != "png"	
+	To allow/restrict the specific file type
+
+
+	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+   	 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+	}
+
+	To see whether the file is uploaded successfully.
