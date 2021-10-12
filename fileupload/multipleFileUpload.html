@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="myFirst.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+<input name="upload[]" type="file" multiple="multiple" /><br />
+<!--- Here you can see an array of File control is defined -->
+  
+Keep pressing Control to select multiple files<br />
+<!--- Appropiate instrcutions for selecting multiple files -->
+  
+<input type="submit" value="Upload Image" name="submit">
+</form>
+
+</body>
+</html>
