@@ -1,0 +1,46 @@
+<html>
+	<head>
+	<title>My AJAX Application</title>
+	</head>
+
+	<body>
+
+	<script language="javascript">
+		function showHint(str) {
+			if (str=="s") {
+			}
+			else {
+				const xmlhttp=new XMLHttpRequest();
+				// creating an object of XMLHttpRequest
+				
+				xmlhttp.onload = function() {
+					document.getElementById("txtHint").innerHTML=this.responseText;
+				}
+
+				xmlhttp.open("GET", "gethint.php?sohil="+str);
+				// where to submit the request
+				// how to submit a request
+
+				xmlhttp.send();
+
+			}
+		}
+	</script>
+	
+
+	<p>
+			Start typing a name in the input field below:</p>
+	<p>
+	Greetings Message : <span id="txtHint"></span>
+	</p>
+	
+		<form>
+			Name: <input type="text" name="myName" />
+			Gender : <select name="myGender" onchange="showHint(this.value)">
+				<option value="s">Select...</option>
+				<option value="m">Male</option>
+				<option value="f">Female</option>
+				</select>
+		</form>
+	</body>
+</html>
