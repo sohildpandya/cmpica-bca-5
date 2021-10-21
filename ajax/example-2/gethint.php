@@ -1,24 +1,17 @@
 <?php
-// get the q parameter from URL
-$q = $_REQUEST["q"];
-$file = fopen("demo.csv","r");
-$j=0;
-$hint="";
-echo "<strong>";
-while (!feof($file)) // Reading up to the end of the file
-{        
-	$array=fgetcsv($file);	// Getting first row as an array
-	$myF=$array[1];
-	if ($q !== "") {
-		$q = strtolower($q);
-		$len=strlen($q);
-		if ($q==substr(trim($array[1]),0,$len)) {
-			$j++;
-			$hint.="<br>".$array[1]." ".$array[0];
-		}
+	$query=$_GET['ask'];
+	$hint="";
+	$count=0;
+	$file = fopen("demo.csv","r");
+	while (!feof($file)) {
+		$array=fgetcsv($file);	
+		$first_name=$array[1];
+		$last_name=$array[0];
+		if ($query==substr(trim($first_name), 0, strlen($query))) {
+			$hint.="<br><strong><font color='red'>".substr(trim($first_name),0,strlen($query))."</font></strong><em>".substr(trim($first_name), strlen($query)).$last_name."</em>";
+			$count++;
+		}		
 	}
-}
-echo $hint === "" ? "no suggestion" : $hint;
-echo "<strong>";
-echo "<br><br><font color='red'>".$j." matches found</font>";
+	echo $hint == "" ? "No Suggestion" : $hint;
+	echo "<br><br><font color='red'>".$count." Matches are found</font>";
 ?>
