@@ -1,0 +1,21 @@
+<p>Enter Student ID:</p>
+<p>Attendance: <span id="txtHint"></span></p>
+<form>
+Student ID: <input type="text" id="mytext" onkeyup="showHint(this.value)">
+</form>
+<script>
+
+function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  xmlhttp.open("GET", "gethint.php?ask=" + str);
+  xmlhttp.send();
+  }
+}
+</script>
